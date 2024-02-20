@@ -18,95 +18,25 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  List dish = ["curry", "pasta", "sushi", "pizza"];
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
-
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-
         title: Text(widget.title),
       ),
-      body: Center(
-
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Row(
-              children: const [
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: SizedBox(
-                    height: 50,
-                    width: 50,
-                    child: ColoredBox(color: Colors.blue),
-                  ),
-                ),
-                
-                SizedBox(
-                  height: 50,
-                  width: 50,
-                  child: ColoredBox(color: Colors.blue),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: SizedBox(
-                    height: 100,
-                    width: 100,
-                    child: ColoredBox(color: Colors.red),
-                  ),
-                ),
-                
-                SizedBox(
-                  height: 100,
-                  width: 100,
-                  child: ColoredBox(color: Colors.red),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: const [
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: SizedBox(
-                    height: 150,
-                    width: 150,
-                    child: ColoredBox(color: Colors.pink),
-                  ),
-                ),
-                
-                SizedBox(
-                  height: 50,
-                  width: 50,
-                  child: ColoredBox(color: Colors.pink),
-                ),
-              ],
-            ),
-            
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            Text(
-            'Can you watch me?'),            
-          ],
-        ),
-      ),
+      body: ListView.builder(
+          itemCount: dish.length,
+          itemBuilder: (context, index) {
+            return Text(dish[index]); // Textが文字でない場合は.toStringで文字型に
+          }),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
-      ), 
+      ),
     );
   }
 }
