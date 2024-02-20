@@ -4,7 +4,7 @@ class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
   final String title;
-
+  // Stateを作る定型表現
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
