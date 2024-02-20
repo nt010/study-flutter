@@ -12,6 +12,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
+  String message = "Initial message";
+
   void _incrementCounter() {
     setState(() {
       _counter++;
@@ -27,11 +29,21 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: ListView.builder(
-          itemCount: dish.length,
-          itemBuilder: (context, index) {
-            return Text(dish[index]); // Textが文字でない場合は.toStringで文字型に
-          }),
+      body: Center(
+        child: Column(
+          children: [
+            TextField(
+              onChanged: (value) {
+                print(value);
+                setState(() {
+                  message = value;
+                });
+              },
+            ),
+            Text(message),
+          ],
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
