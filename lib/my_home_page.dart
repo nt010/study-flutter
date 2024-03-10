@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -12,15 +11,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   String message = "Initial message";
-
-  //awaitを使う場合はasyncを使い、asyncを使うときはFuture型になる(未来から値が来るイメージ)
-  Future<void> getRepo() async {
-    var url = Uri.https('api.github.com', 'nt010/repos');
-    var response = await http.get(url);
-    debugPrint('Response status: ${response.statusCode}');
-    debugPrint('Response body: ${response.body}');
-  }
-
 
   List dish = ["curry", "pasta", "sushi", "pizza"];
 
@@ -47,8 +37,8 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          await getRepo();
+        onPressed: () {
+          //
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),

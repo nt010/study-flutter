@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // 最初に見せるページ
-      home: const FirstPage(),
+      home: const MyHomePage(title: "yeah!",),
     );
   }
 }
